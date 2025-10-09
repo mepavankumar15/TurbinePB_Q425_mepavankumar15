@@ -9,6 +9,7 @@ describe("calculator", () => {
 
   const program = anchor.workspace.anchorCalculator as Program<calculator>;
   const newAccount = anchor.web3.Keypair.generate();
+  console.log("key of the newAccount :" ,newAccount.publicKey);
 
   it("Is initialized!", async () => {
     // Add your test here.
@@ -37,7 +38,7 @@ describe("calculator", () => {
     assert(account.new==20);
   });
 
-  it("is add!" , async() => {
+  it("is add! now " , async() => {
     const tx = await program.methods.add()
     .accounts({
         account : newAccount.publicKey,
